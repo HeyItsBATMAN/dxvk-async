@@ -16,7 +16,7 @@ source=($pkgbase::"git+https://github.com/doitsujin/dxvk.git"
 )
 
 md5sums=('SKIP'
-         '65e951ee40d96f1dc698b3a6c36da0e8'
+         'e82715c1769192311b5d7127a88b656b'
          '63d0a0ac0927d01d256bf7d781b5111b')
 
 pkgver() {
