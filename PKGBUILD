@@ -11,13 +11,13 @@ license=('zlib/libpng')
 makedepends=('ninja' 'meson>=0.43' 'glslang' 'mingw-w64-gcc' 'git' 'wine')
 options=(!strip !buildflags staticlibs)
 source=($pkgbase::"git+https://github.com/doitsujin/dxvk.git"
+	"https://raw.githubusercontent.com/jomihaka/dxvk-poe-hack/master/pipeline.patch"
     "setup_dxvk_aur.verb"
-    "dxvk-async.patch"
 )
 
 md5sums=('SKIP'
-         '63d0a0ac0927d01d256bf7d781b5111b'
-         '46984ffa113820e92dc023f96f4a642b')
+         '65e951ee40d96f1dc698b3a6c36da0e8'
+         '63d0a0ac0927d01d256bf7d781b5111b')
 
 pkgver() {
         cd "$pkgbase"
@@ -27,7 +27,7 @@ pkgver() {
 prepare() {
 	# Apply DXVK Async Patch
 	cd 'dxvk-git'	
-	patch -Np1 < ../'dxvk-async.patch'
+	patch -Np1 < ../'pipeline.patch'
 	cd ..
 }
 
