@@ -37,3 +37,13 @@ Inside of the config set this variable to 'True' to enable the async pipeline co
 ```
 dxvk.asyncPipeCompiler = True
 ```
+
+# Credits
+
+Big thanks to
+
+[ssorgatem](https://aur.archlinux.org/packages/dxvk-git/) for the original PKGBUILD from the AUR
+
+[doitsujin](https://github.com/doitsujin/dxvk) for DXVK
+
+[jomihaka](https://github.com/jomihaka/dxvk-poe-hack) for the patch
