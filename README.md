@@ -38,6 +38,39 @@ Inside of the config set this variable to 'True' to enable the async pipeline co
 dxvk.asyncPipeCompiler = True
 ```
 
+# Guide for Lutris
+
+### To install a custom DXVK version for a game in Lutris
+
+- Right click on a game in Lutris
+- Click 'Configure'
+- Go to 'Runner options'
+- Set DXVK Version to 'Manual'
+- Go to 'Game options'
+- Copy the path from the field 'Wine prefix'
+- Open a terminal and set the WINEPREFIX environment variable to your path
+```
+# If using bash
+export WINEPREFIX="/paste/your/path"
+
+# Install using winetricks
+# For the 64bit version
+winetricks /usr/share/dxvk/x64/setup_dxvk_aur.verb
+# For the 32bit version
+winetricks /usr/share/dxvk/x32/setup_dxvk_aur.verb
+# If you installed the wrong one use
+winetricks --force /path/to/correct/setup_dxvk_aur.verb
+```
+
+### To enable the async pipeline compiler for a game in Lutris
+
+- Go back to Lutris
+- Right click and click 'Configure'
+- Go to 'System options'
+- Under 'Environment variables' click 'Add'
+- Change Key to 'DXVK_CONFIG_FILE'
+- Change value to the full path of a dxvk.conf like the example one included in the repository
+
 # Credits
 
 Big thanks to
