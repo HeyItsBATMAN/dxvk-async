@@ -30,8 +30,9 @@ prepare() {
 	cd 'dxvk-git'
 
 	# Checkout different commit
-
-	git reset --hard "${_dxvk_commit}"
+	if [ $_use_dxvk == "true" ]; then
+		git reset --hard "${_dxvk_commit}"
+	fi
 	
 	patch -Np1 < ../'pipeline.patch'
 	cd ..
