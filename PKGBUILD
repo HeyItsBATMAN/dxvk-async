@@ -1,8 +1,6 @@
-# Maintainer: Adrià Cereto i Massagué <ssorgatem at gmail.com>
-
 pkgbase=dxvk-git
 pkgname=('dxvk-win64-git' 'dxvk-win32-git' 'dxvk-git')
-pkgver=0.72_29_g0f52ec2
+pkgver=0.72_30_g9284081
 pkgrel=1
 pkgdesc="A Vulkan-based compatibility layer for Direct3D 10/11 which allows running 3D applications on Linux using Wine."
 arch=('x86_64' 'i686')
@@ -10,13 +8,16 @@ url="https://github.com/doitsujin/dxvk"
 license=('zlib/libpng')
 makedepends=('ninja' 'meson>=0.43' 'glslang' 'mingw-w64-gcc' 'git' 'wine')
 options=(!strip !buildflags staticlibs)
+
+source $PWD/customization.cfg
+
 source=($pkgbase::"git+https://github.com/doitsujin/dxvk.git"
-	"https://raw.githubusercontent.com/jomihaka/dxvk-poe-hack/master/pipeline.patch"
+	"https://raw.githubusercontent.com/jomihaka/dxvk-poe-hack/${_pipeline_commit}/pipeline.patch"
     "setup_dxvk_aur.verb"
 )
 
 md5sums=('SKIP'
-         'e82715c1769192311b5d7127a88b656b'
+         'SKIP'
          '63d0a0ac0927d01d256bf7d781b5111b')
 
 pkgver() {
@@ -26,7 +27,12 @@ pkgver() {
 
 prepare() {
 	# Apply DXVK Async Patch
-	cd 'dxvk-git'	
+	cd 'dxvk-git'
+
+	# Checkout different commit
+
+	git reset --hard "${_dxvk_commit}"
+	
 	patch -Np1 < ../'pipeline.patch'
 	cd ..
 }
