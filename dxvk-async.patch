@@ -114,7 +114,7 @@ index a46f3bb..859e839 100644
  }
 \ No newline at end of file
 diff --git a/src/dxvk/dxvk_graphics.cpp b/src/dxvk/dxvk_graphics.cpp
-index b876851..ff378c5 100644
+index b876851..ef5f811 100644
 --- a/src/dxvk/dxvk_graphics.cpp
 +++ b/src/dxvk/dxvk_graphics.cpp
 @@ -36,15 +36,19 @@ namespace dxvk {
@@ -180,6 +180,13 @@ index b876851..ff378c5 100644
 +        new DxvkGraphicsPipelineInstance(m_pipeMgr->m_device->vkd(),
 +          state, renderPassHandle, newPipelineHandle);
 +
++      // Use the new pipeline as the base pipeline for derivative pipelines
++      if (newPipelineBase == VK_NULL_HANDLE && newPipelineHandle != VK_NULL_HANDLE)
++        m_basePipeline.compare_exchange_strong(newPipelineBase, newPipelineHandle);
++
++      if (newPipelineHandle != VK_NULL_HANDLE)
++        this->writePipelineStateToCache(state, renderPass.format());
++
 +      // Compile pipeline asynchronously if requested
 +      if (async)
 +        m_compiler->queueCompilation(this, newPipeline);
@@ -189,14 +196,13 @@ index b876851..ff378c5 100644
 +      m_pipelines.push_back(newPipeline);
        m_pipeMgr->m_numGraphicsPipelines += 1;
      }
-     
-     // Use the new pipeline as the base pipeline for derivative pipelines
-     if (newPipelineBase == VK_NULL_HANDLE && newPipelineHandle != VK_NULL_HANDLE)
-       m_basePipeline.compare_exchange_strong(newPipelineBase, newPipelineHandle);
 -    
-+
-     if (newPipelineHandle != VK_NULL_HANDLE)
-       this->writePipelineStateToCache(state, renderPass.format());
+-    // Use the new pipeline as the base pipeline for derivative pipelines
+-    if (newPipelineBase == VK_NULL_HANDLE && newPipelineHandle != VK_NULL_HANDLE)
+-      m_basePipeline.compare_exchange_strong(newPipelineBase, newPipelineHandle);
+-    
+-    if (newPipelineHandle != VK_NULL_HANDLE)
+-      this->writePipelineStateToCache(state, renderPass.format());
 -    
 +
      return newPipelineHandle;
