@@ -10,7 +10,7 @@ but was later removed due to some controversy regarding [Overwatch bans](https:/
 
 Blizzard was quick to respond that Linux users will [NOT get banned for this](https://www.reddit.com/r/linux_gaming/comments/9g111m/blizzard_removes_bans_of_linux_overwatch_players/)
 but the changes were not reverted.
-This uses jomihaka's current [Patch for DXVK](https://github.com/jomihaka/dxvk-poe-hack) but inside of a PKGBUILD
+This uses a modified version of jomihaka's old [Patch for DXVK](https://github.com/jomihaka/dxvk-poe-hack) but inside of a PKGBUILD
 So here we are!
 
 # Current Version
@@ -19,9 +19,7 @@ If you clone the repository as is and run
 ```
 makepkg -si
 ``` 
-the DXVK version you will get is the release version 0.72 plus the following commits till [this one](https://github.com/doitsujin/dxvk/commit/92840811806bec30cffe4824aa8618df8010e775)
-
-I will update this PKGBUILD as soon as either jomihaka updates his patch or another patch gets released
+the DXVK version you will get is the release version 0.81 patched with the async patch
 
 # How do I use this
 
@@ -91,4 +89,4 @@ Big thanks to
 
 [doitsujin](https://github.com/doitsujin/dxvk) for DXVK
 
-[jomihaka](https://github.com/jomihaka/dxvk-poe-hack) for the patch
+[jomihaka](https://github.com/jomihaka/dxvk-poe-hack) for the original patch, which this one is based on
