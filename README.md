@@ -10,7 +10,7 @@ but was later removed due to some controversy regarding [Overwatch bans](https:/
 
 Blizzard was quick to respond that Linux users will [NOT get banned for this](https://www.reddit.com/r/linux_gaming/comments/9g111m/blizzard_removes_bans_of_linux_overwatch_players/)
 but the changes were not reverted.
-This uses jomihaka's current [Patch for DXVK](https://github.com/jomihaka/dxvk-poe-hack) but inside of a PKGBUILD
+This uses a modified version of jomihaka's old [Patch for DXVK](https://github.com/jomihaka/dxvk-poe-hack) but inside of a PKGBUILD
 So here we are!
 
 # Current Version
