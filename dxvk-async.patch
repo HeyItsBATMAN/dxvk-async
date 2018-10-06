@@ -1,3 +1,16 @@
+diff --git a/meson.build b/meson.build
+index 5f020f7..cd81408 100644
+--- a/meson.build
++++ b/meson.build
+@@ -56,7 +56,7 @@ glsl_generator = generator(glsl_compiler,
+   arguments : [ '-V', '--vn', '@BASENAME@', '@INPUT@', '-o', '@OUTPUT@' ])
+ 
+ dxvk_version = vcs_tag(
+-  command: ['git', 'describe', '--dirty=+'],
++  command: ['git', 'describe', '--dirty=-async'],
+   input:  'version.h.in',
+   output: 'version.h')
+ 
 diff --git a/src/dxvk/dxvk_context.cpp b/src/dxvk/dxvk_context.cpp
 index ae9a0a6..11c4dae 100644
 --- a/src/dxvk/dxvk_context.cpp
