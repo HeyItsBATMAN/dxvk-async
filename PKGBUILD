@@ -18,7 +18,7 @@ source=($pkgbase::"git+https://github.com/doitsujin/dxvk.git"
 
 md5sums=('SKIP'
          '63d0a0ac0927d01d256bf7d781b5111b'
-         '2ca5236e71ab230d7eb9dde62321f256')
+         '75eaa62316afb29d08e65114f11d1557')
 
 pkgver() {
         cd "$pkgbase"
@@ -82,15 +82,3 @@ package_dxvk-git() {
 	pkgdesc="Dummy package to smooth the transition to the split packages"
 	depends=("dxvk-win32-git" "dxvk-win64-git")
 }
-md5sums=('SKIP'
-         '63d0a0ac0927d01d256bf7d781b5111b'
-         '2ca5236e71ab230d7eb9dde62321f256')
-md5sums=('SKIP'
-         '63d0a0ac0927d01d256bf7d781b5111b'
-         'f9f3c841181e67f8e2d1e640a523dbe3')
-md5sums=('SKIP'
-         '63d0a0ac0927d01d256bf7d781b5111b'
-         'f9f3c841181e67f8e2d1e640a523dbe3')
-md5sums=('SKIP'
-         '63d0a0ac0927d01d256bf7d781b5111b'
-         'f9f3c841181e67f8e2d1e640a523dbe3')
