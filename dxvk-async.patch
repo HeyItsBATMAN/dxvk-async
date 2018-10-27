@@ -138,7 +138,7 @@ index b876851..ef5f811 100644
      DxvkDescriptorSlotMapping slotMapping;
      if (vs  != nullptr) vs ->defineResourceSlots(slotMapping);
      if (tcs != nullptr) tcs->defineResourceSlots(slotMapping);
-@@ -75,15 +79,13 @@ namespace dxvk {
+@@ -82,12 +82,9 @@
    }
    
    
@@ -146,9 +146,16 @@ index b876851..ef5f811 100644
 -    for (const auto& instance : m_pipelines)
 -      this->destroyPipeline(instance.pipeline());
 -  }
-+  DxvkGraphicsPipeline::~DxvkGraphicsPipeline() { }
-   
-   
+-  
+-  
++DxvkGraphicsPipeline::~DxvkGraphicsPipeline() { }
++
++
+   Rc<DxvkShader> DxvkGraphicsPipeline::getShader(
+           VkShaderStageFlagBits             stage) const {
+     switch (stage) {
+@@ -109,7 +106,8 @@
+ 
    VkPipeline DxvkGraphicsPipeline::getPipelineHandle(
      const DxvkGraphicsPipelineStateInfo& state,
 -    const DxvkRenderPass&                renderPass) {
@@ -720,5 +727,3 @@ index a0eb87a..58c274b 100644
 +      { "dxvk.asyncPipeCompiler",           "True" },
 +    }} },
    }};
- 
- 
