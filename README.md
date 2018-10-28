@@ -19,7 +19,7 @@ If you clone the repository as is and run
 ```
 makepkg -si
 ``` 
-the DXVK version you will get is the release version 0.81 patched with the async patch
+the DXVK version you will get is the release version 0.90 up to [this commit](https://github.com/doitsujin/dxvk/commit/a53e05339174ae626d1207f636c69e548fcdd6ee) patched with the async patch
 
 # How do I use this
 
@@ -90,3 +90,5 @@ Big thanks to
 [doitsujin](https://github.com/doitsujin/dxvk) for DXVK
 
 [jomihaka](https://github.com/jomihaka/dxvk-poe-hack) for the original patch, which this one is based on
+
+[archfan](https://github.com/archfan) for updating and testing for patch 0.91+
