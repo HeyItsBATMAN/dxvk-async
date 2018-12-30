@@ -10,7 +10,11 @@ but was later removed due to some controversy regarding [Overwatch bans](https:/
 
 Blizzard was quick to respond that Linux users will [NOT get banned for this](https://www.reddit.com/r/linux_gaming/comments/9g111m/blizzard_removes_bans_of_linux_overwatch_players/)
 but the changes were not reverted.
-This uses a modified version of jomihaka's old [Patch for DXVK](https://github.com/jomihaka/dxvk-poe-hack) but inside of a PKGBUILD
+~~This uses a modified version of jomihaka's old [Patch for DXVK](https://github.com/jomihaka/dxvk-poe-hack) but inside of a PKGBUILD~~
+
+### Update 2018-12-30:
+This now uses [jomihaka](https://github.com/jomihaka/dxvk-poe-hack) for DXVK 0.94
+
 So here we are!
 
 # Current Version
@@ -19,7 +23,7 @@ If you clone the repository as is and run
 ```
 makepkg -si
 ``` 
-the DXVK version you will get is the release version 0.90 up to [this commit](https://github.com/doitsujin/dxvk/commit/a53e05339174ae626d1207f636c69e548fcdd6ee) patched with the async patch
+the DXVK version you will get is the release version 0.94 up to [this commit](https://github.com/doitsujin/dxvk/commit/4e22e4bc3ad2f8c7f541fbdcc3caa2587f802b1d) patched with the async patch
 
 # How do I use this
 
@@ -42,10 +46,9 @@ makepkg -si
 # Enabling the async pipeline compiler
 
 By default the async pipeline compiler is disabled.
-To enable it, set the DXVK_CONFIG_FILE environment variable to the path of a dxvk config file.
-Inside of the config set this variable to 'True' to enable the async pipeline compiler.
+To enable it, set the DXVK_ASYNC environment variable to 1
 ```
-dxvk.asyncPipeCompiler = True
+DXVK_ASYNC=1
 ```
 
 # Guide for Lutris
@@ -78,8 +81,8 @@ winetricks --force /path/to/correct/setup_dxvk_aur.verb
 - Right click and click 'Configure'
 - Go to 'System options'
 - Under 'Environment variables' click 'Add'
-- Change Key to 'DXVK_CONFIG_FILE'
-- Change value to the full path of a dxvk.conf like the example one included in the repository
+- Change Key to 'DXVK_ASYNC'
+- Change value to 1
 
 # Credits
 
@@ -89,6 +92,6 @@ Big thanks to
 
 [doitsujin](https://github.com/doitsujin/dxvk) for DXVK
 
-[jomihaka](https://github.com/jomihaka/dxvk-poe-hack) for the original patch, which this one is based on
+[archfan](https://github.com/archfan) for updating and testing for patch 0.91+ (outdated now)
 
-[archfan](https://github.com/archfan) for updating and testing for patch 0.91+
+[jomihaka](https://github.com/jomihaka/dxvk-poe-hack) for the original and most updated patch
