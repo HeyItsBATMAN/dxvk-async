@@ -15,10 +15,12 @@ source $PWD/customization.cfg
 source=($pkgbase::"git+https://github.com/doitsujin/dxvk.git"
     "setup_dxvk_aur.verb"
     "https://raw.githubusercontent.com/jomihaka/dxvk-poe-hack/master/pipeline.patch"
+    "logging.patch"
 )
 
 md5sums=('SKIP'
          '63d0a0ac0927d01d256bf7d781b5111b'
+         'SKIP'
          'SKIP')
 
 pkgver() {
@@ -35,6 +37,10 @@ prepare() {
 
 	# Apply patch
 	patch -Np1 < ../'pipeline.patch'
+
+    if [ $_use_logging == "true" ]; then
+        patch -Np1 < ../'logging.patch'
+    fi
 }
 
 build() {
