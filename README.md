@@ -10,20 +10,16 @@ but was later removed due to some controversy regarding [Overwatch bans](https:/
 
 Blizzard was quick to respond that Linux users will [NOT get banned for this](https://www.reddit.com/r/linux_gaming/comments/9g111m/blizzard_removes_bans_of_linux_overwatch_players/)
 but the changes were not reverted.
-~~This uses a modified version of jomihaka's old [Patch for DXVK](https://github.com/jomihaka/dxvk-poe-hack) but inside of a PKGBUILD~~
 
-### Update 2018-12-30:
-This now uses [jomihaka](https://github.com/jomihaka/dxvk-poe-hack) for DXVK 0.94
-
-So here we are!
+~~This uses a modified version of jomihaka [Patch for DXVK](https://github.com/jomihaka/dxvk-poe-hack) but inside of a PKGBUILD~~
 
 # Current Version
 
 If you clone the repository as is and run
 ```
 makepkg -si
-``` 
-the DXVK version you will get is the release version 0.94 up to [this commit](https://github.com/doitsujin/dxvk/commit/4e22e4bc3ad2f8c7f541fbdcc3caa2587f802b1d) patched with the async patch
+```
+the DXVK version you will get is the release version 1.2.3 up to [this commit](https://github.com/doitsujin/dxvk/commit/4e22e4bc3ad2f8c7f541fbdcc3caa2587f802b1d) patched with the async patch
 
 # How do I use this
 
@@ -55,25 +51,16 @@ DXVK_ASYNC=1
 
 ### To install a custom DXVK version for a game in Lutris
 
-- Right click on a game in Lutris
-- Click 'Configure'
-- Go to 'Runner options'
-- Set DXVK Version to 'Manual'
-- Go to 'Game options'
-- Copy the path from the field 'Wine prefix'
-- Open a terminal and set the WINEPREFIX environment variable to your path
+Using "Manual" folder for runtime doesn't seem to work anymore
+Inside a terminal, cd to .local/share/lutris/runtime/dxvk
 ```
-# If using bash
-export WINEPREFIX="/paste/your/path"
-
-# Install using winetricks
-# For the 64bit version
-winetricks /usr/share/dxvk/x64/setup_dxvk_aur.verb
-# For the 32bit version
-winetricks /usr/share/dxvk/x32/setup_dxvk_aur.verb
-# If you installed the wrong one use
-winetricks --force /path/to/correct/setup_dxvk_aur.verb
+cd .local/share/lutris/runtime/dxvk
 ```
+Symlink any valid dxvk version to the patched one, e.g.
+```
+ln -s /usr/share/dxvk/ ./1.2.3
+```
+Now select the version you symlinked in your game configuration
 
 ### To enable the async pipeline compiler for a game in Lutris
 
@@ -88,7 +75,7 @@ winetricks --force /path/to/correct/setup_dxvk_aur.verb
 
 Big thanks to
 
-[ssorgatem](https://aur.archlinux.org/packages/dxvk-git/) for the original PKGBUILD from the AUR
+[ssorgatem](https://aur.archlinux.org/packages/dxvk-mingw-git) for the original PKGBUILD from the AUR
 
 [doitsujin](https://github.com/doitsujin/dxvk) for DXVK
 
