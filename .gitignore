@@ -1,0 +1,5 @@
+# Ignore all folders
+*/*
+
+# Ignore complete builds
+*.xz
