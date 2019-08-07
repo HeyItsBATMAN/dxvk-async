@@ -1,6 +1,6 @@
 pkgbase=dxvk-async-git
 pkgname=('dxvk-async-git')
-pkgver=1.2.3.r49.g2e83aae4
+pkgver=1.3.r0.g7cb385fa
 pkgrel=1
 pkgdesc="A Vulkan-based compatibility layer for Direct3D 10/11 which allows running 3D applications on Linux using Wine. Winelib version"
 arch=('x86_64')
@@ -11,8 +11,15 @@ makedepends=('ninja' 'meson>=0.43' 'glslang' 'mingw-w64-gcc' 'git' 'wine')
 conflicts=("dxvk-bin" "dxvk-git" "dxvk-wine32-git" "dxvk-wine64-git" "dxvk-win32-git" "dxvk-win64-git" "dxvk-winelib-git")
 source=("git+https://github.com/doitsujin/dxvk.git"  )
 
+## Release 1.3.0 - compiles
+dxvk_commit="7cb385facdfdda7881674dbfc8adb49a1aa35a10"
+## Breaking commit
+# dxvk_commit="a93dd74f711789e259819b7330a51c7f52de494d"
+## Release 1.3.1 - broken
+# dxvk_commit="f5cec978c809672803ccfb825fa713180dc6d1d2"
+
 source=(
-    "git+https://github.com/doitsujin/dxvk.git"
+    "git+https://github.com/doitsujin/dxvk.git#commit=$dxvk_commit"
     "dxvk-async.patch"
 )
 
